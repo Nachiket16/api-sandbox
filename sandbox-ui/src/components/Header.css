@@ -1,0 +1,16 @@
+/* Header.css */
+
+.card-header {
+  background-color: #282c34; /* Use the same background color as .App-header */
+  color: white;
+}
+
+.card-title {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+.card-body {
+  text-align: center;
+  background-color: #3498db;
+}
