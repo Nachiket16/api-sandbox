@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 import base_url from "../api/bootapi";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const Course = ({ course, onCourseDeleted, onCourseUpdated }) => {
     const navigate = useNavigate();

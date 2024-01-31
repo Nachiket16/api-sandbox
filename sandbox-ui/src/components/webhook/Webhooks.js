@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
 import { Button, Container, Form, FormGroup, Input } from "reactstrap";
-import base_url from "../api/bootapi";
-import { toast, ToastContainer } from "react-toastify";
+import base_url from "../../api/bootapi";
+import { toast } from "react-toastify";
 
-const AddCourse = () =>{
+const Webhooks = () =>{
 
     const [course, setCourse] = useState({});
     //form handeler function
@@ -68,4 +68,4 @@ const AddCourse = () =>{
     )
 }
 
-export default AddCourse
+export default Webhooks;

@@ -7,20 +7,17 @@ const Menus = () =>{
             <Link className="list-group-item list-group-item-action" tag="a" to="/" action>
             {"Home"}
             </Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/consumers" action>
-            {"Consumers"}
+            <Link className="list-group-item list-group-item-action" tag="a" to="/webhooks" action>
+            {"Webhooks"}
             </Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/add-course" action>
-            {"Add Course"}
+            <Link className="list-group-item list-group-item-action" tag="a" to="/upstreams" action>
+            {"Upstreams"}
             </Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/view-courses" action>
-            {"View Course"}
+            <Link className="list-group-item list-group-item-action" tag="a" to="/services" action>
+            {"Services"}
             </Link>
             <Link className="list-group-item list-group-item-action" tag="a" to="/view-consumers" action>
             {"View Consumers"}
-            </Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/about" action>
-            {"About"}
             </Link>
             <Link className="list-group-item list-group-item-action" tag="a" to="/contact" action>
             {"Contact"}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import Course from "./Course";
+import { toast } from "react-toastify";
+import Course from "../Course";
 
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 
 const Allcourses = () => {
@@ -27,15 +27,14 @@ const Allcourses = () => {
     const [courses,setCourses] = useState([]); //Hook->
     return (
         <div style={{ marginBottom: '20px' }}>
-            <h1 className="text-center my-3">All Course</h1>
-            <p>List of courses are as follows</p>
+            <h1 className="text-center my-3">Upstreams</h1>
+            <p>List of upstreams</p>
             {
                 courses.length > 0 ? courses.map((item) => (
                     <div style={{marginBottom: '5px'}}>
                     <Course key={item.id} course={item} />
                     </div>
                 )) : "No course Found"
-
             }
         </div>
     );

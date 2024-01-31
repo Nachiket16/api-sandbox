@@ -4,13 +4,14 @@ import { Container, Row, Col } from "reactstrap"
 import {ToastContainer, toast} from "react-toastify"
 import Home from './components/Home';
 import Header from './components/Header';
-import Allcourses from './components/Allcourses'
-import AllConsumers from './components/AllConsumers'
-import AddCourse from './components/AddCourse';
+import Upstreams from './components/upstream/Upstreams'
+import AllConsumers from './components/consumer/AllConsumers'
+import Webhooks from './components/webhook/Webhooks';
 import Menus from './components/Menus';
 import UpdateCourseForm from "./components/UpdateCourseForm";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Consumers from "./components/Consumers";
+import Services from "./components/service/Services";
+import AddConsumer from "./components/consumer/AddConsumer";
 
 function App() {
   return (
@@ -31,10 +32,11 @@ function App() {
             <Col md={8}>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/consumers' element={<Consumers />} />
-                <Route path='/add-course' element={<AddCourse />} />
-                <Route path='/view-courses' element={<Allcourses />} />
+                <Route path='/webhooks' element={<Webhooks />} />
+                <Route path='/upstreams' element={<Upstreams />} />
+                <Route path="/services" element={<Services/>}/>
                 <Route path='/view-consumers' element={<AllConsumers />} />
+                <Route path='/add-consumer' element={<AddConsumer />} />
                 <Route path='/update-course/:id' element={<UpdateCourseForm/>} />
               </Routes>
             </Col>
