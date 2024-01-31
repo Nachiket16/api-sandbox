@@ -1,0 +1,15 @@
+{
+    "WELCOME": "Spring Boot Application",
+    "welcome_message": "Spring Boot Application",
+    "H-P":"Course management",
+    "AC_H":"Fill The Course Details",
+    "AC_F1_ID":"Course Id",
+    "AC_F1_TIT":"Course title",
+    "AC_F3_DESC":"Course description",
+    "AC_BUT1":"Add Course",
+    "H_BUT":"Home",
+    "AC_BUT2":"Clear",
+    "View_Course":"View Course",
+    "About":"About",
+    "Contact":"Contact"
+}
