@@ -10,8 +10,9 @@ import Webhooks from './components/webhook/Webhooks';
 import Menus from './components/Menus';
 import UpdateCourseForm from "./components/UpdateCourseForm";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Services from "./components/service/Services";
+import Services from "./components/service/AllServices";
 import AddConsumer from "./components/consumer/AddConsumer";
+import AddServiceForm from "./components/service/AddService";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/webhooks' element={<Webhooks />} />
                 <Route path='/upstreams' element={<Upstreams />} />
                 <Route path="/services" element={<Services/>}/>
+                <Route path='/add-service' element={<AddServiceForm />} />
                 <Route path='/view-consumers' element={<AllConsumers />} />
                 <Route path='/add-consumer' element={<AddConsumer />} />
                 <Route path='/update-course/:id' element={<UpdateCourseForm/>} />

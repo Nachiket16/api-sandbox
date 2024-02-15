@@ -23,32 +23,19 @@ const AddConsumer = () => {
     }));
   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-    
-//     try {
-//       const response = await axios.post(`${base_url}/v1/consumers/`, consumerData);
-//       console.log("Consumer added successfully", response);
-//       toast.success("Consumer added successfully")
-//       navigate("/"); // Redirect to the AllConsumers component after adding a new consumer
-//     } catch (error) {
-//       console.error("Error adding consumer", error);
-//     }
-//   };
-  const handleSubmit = () => {
-    console.log("Consumer payload ",consumerData)
-    axios.post(`${base_url}/v1/consumers/`, consumerData)
-      .then((response) => {
-        console.log("Consumers : ", response)
-        toast.success("course has loaded")
-        // navigate("/")
-      },
-        (error) => {
-          console.log(error);
-          toast.error("Something went Wrong")
-        }
-      )
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${base_url}/v1/consumers`, consumerData);
+      console.log("Consumer added:", response.data);
+      toast.success("Consumer has been added successfully");
+      navigate("/view-consumers")
+    } catch (error) {
+      console.error("Error adding consumer:", error);
+      toast.error("Something went wrong while adding consumer");
+    }
+  };
+
   return (
     <Container>
       <h2 className="text-center my-3">Form for adding consumer</h2>
