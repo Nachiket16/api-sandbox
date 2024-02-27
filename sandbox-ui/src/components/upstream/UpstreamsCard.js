@@ -1,6 +1,6 @@
 import React from "react";
 
-const UpstreamsCard = ({ upstream }) => {
+const UpstreamCard = ({ upstream }) => {
   console.log(upstream);
   const cardBodyStyle = {
     textAlign: "left", // Align text to the left
@@ -28,4 +28,4 @@ const UpstreamsCard = ({ upstream }) => {
   );
 }
 
-export default UpstreamsCard;
+export default UpstreamCard;

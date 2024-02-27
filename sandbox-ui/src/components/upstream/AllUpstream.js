@@ -1,14 +1,17 @@
 import axios from "axios";
-import { Button, Container, Row, Col } from "reactstrap";
+import { Button, Container, Row, Col, Table } from "reactstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import UpstreamsCard from "./UpstreamsCard";
+import UpstreamCard from "./UpstreamsCard";
 import base_url from "../../api/bootapi";
+import Popup from "../Popup";
 
 const AllUpstream = () => {
     const navigate = useNavigate();
     const [upstreams, setUpstreams] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedUpstream, setSelectedUpstream] = useState(null);
 
     useEffect(() => {
         getAllUpstreamFromServer();
@@ -22,7 +25,7 @@ const AllUpstream = () => {
                 setUpstreams(response.data)
             })
             .catch((error) => {
-                console.log(error)
+                console.error(error)
                 toast.error("Something went wrong")
             });
     };
@@ -32,13 +35,21 @@ const AllUpstream = () => {
         navigate('/add-upstream');
     };
 
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
+    const viewUpstreamDetails = (upstream) => {
+        setSelectedUpstream(upstream);
+        toggleModal();
+    }
+
     return (
         <div style={{ marginBottom: '20px' }}>
-            <h1 className="text-center my-3">All Upstream</h1>
             <Container className="text-center">
                 <Row>
                     <Col xs="6">
-                        <p>Add Upstream</p>
+                        <h1>Upstream List</h1>
                     </Col>
                     <Col xs="6">
                         <Button onClick={handleAddUpstreamForm} color="success">
@@ -47,15 +58,51 @@ const AllUpstream = () => {
                     </Col>
                 </Row>
             </Container>
-            {upstreams.length > 0 ? (
-                upstreams.map((upstream) => (
-                    <div key={upstream.upstreamId} style={{ marginBottom: '15px' }}>
-                        <UpstreamsCard upstream={upstream} />
-                    </div>
-                ))
-            ) : (
-                <p>No upstream found</p>
-            )}
+            <Container>
+                <Row>
+                    <Col xs="12">
+                        <Table striped bordered responsive>
+                            <thead>
+                                <tr>
+                                    <th>Upstream Id</th>
+                                    <th>Name</th>
+                                    <th>Base URL</th>
+                                    <th>Source System</th>
+                                    <th>Auth Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {upstreams.map((upstream) => (
+                                    <tr key={upstream.upstreamId}>
+                                        <td>{upstream.upstreamId}</td>
+                                        <td>{upstream.upstreamName}</td>
+                                        <td>{upstream.baseUrl}</td>
+                                        <td>{upstream.sourceSystem}</td>
+                                        <td>{upstream.authType}</td>
+                                        <td>
+                                            <Button
+                                                color="info"
+                                                onClick={() => viewUpstreamDetails(upstream)}
+                                            >
+                                                View
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </Col>
+                </Row>
+
+
+            </Container>
+            <Popup
+                isOpen={isModalOpen}
+                toggleModal={toggleModal}
+                componentName={UpstreamCard}
+                componentData={selectedUpstream}
+                propName="upstream"
+            />
         </div>
     );
 };

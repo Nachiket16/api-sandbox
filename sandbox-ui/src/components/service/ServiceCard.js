@@ -1,10 +1,11 @@
 import React from "react";
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
+  console.log("Service : ",service);
   const cardBodyStyle = {
-    textAlign: "left", // Align text to the left
+    textAlign: "left", 
   };
+
   return (
     <div className="card">
       <div className="card-body">

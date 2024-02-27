@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
 import axios from "axios";
 import base_url from "../../api/bootapi";
 import { toast } from "react-toastify";
 
 const AddServiceForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     serviceName: "",
     consumerId: 0,
@@ -27,14 +30,7 @@ const AddServiceForm = () => {
       const response = await axios.post(`${base_url}/v1/services`, formData);
       console.log("Service added:", response.data);
       toast.success("Service has been added successfully");
-      // Optionally, you can reset the form after successful submission
-      setFormData({
-        serviceName: "",
-        consumerId: 0,
-        anchorId: "",
-        authType: "JWT",
-        integrationType: "ERP"
-      });
+      navigate("/services");
     } catch (error) {
       console.error("Error adding service:", error);
       toast.error("Something went wrong while adding service");

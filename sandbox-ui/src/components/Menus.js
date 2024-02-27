@@ -17,10 +17,7 @@ const Menus = () =>{
             {"Services"}
             </Link>
             <Link className="list-group-item list-group-item-action" tag="a" to="/view-consumers" action>
-            {"View Consumers"}
-            </Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/contact" action>
-            {"Contact"}
+            {"Consumers"}
             </Link>
         </ListGroup>
     )

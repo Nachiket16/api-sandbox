@@ -3,8 +3,11 @@ import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
 import axios from "axios";
 import base_url from "../../api/bootapi";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddUpstreamForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     upstreamName: "",
     serviceId: 0,
@@ -37,24 +40,7 @@ const AddUpstreamForm = () => {
       const response = await axios.post(`${base_url}/v1/upstreams`, formData);
       console.log("Upstream added:", response.data);
       toast.success("Upstream has been added successfully");
-      // Optionally, you can reset the form after successful submission
-      setFormData({
-        upstreamName: "",
-        serviceId: 0,
-        baseUrl: "",
-        sourceSystem: "",
-        authType: "",
-        authUsername: "",
-        authPassword: "",
-        authKey: "",
-        authSecret: "",
-        authRefreshToken: "",
-        header1: "",
-        header2: "",
-        header3: "",
-        header4: "",
-        header5: ""
-      });
+      navigate("/upstreams");
     } catch (error) {
       console.error("Error adding upstream:", error);
       toast.error("Something went wrong while adding upstream");

@@ -3,7 +3,7 @@ import React from "react";
 const Consumers = ({ consumer }) => {
   console.log(consumer);
   const cardBodyStyle = {
-    textAlign: "left", // Align text to the left
+    textAlign: "left",
   };
   return (
     <div className="card">
